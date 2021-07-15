@@ -38,13 +38,14 @@ SELECT * FROM dept_managers
 
 DROP TABLE employees
 
-CREATE TABLE employees (
+CREATE TABLE employees(
 	emp_no INT NOT NULL,
-	birth_date DATE NOT NULL,
+	emp_title_id VARCHAR(70) NOT NULL,
+    birth_date DATE NOT NULL,
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(50) NOT NULL,
 	sex VARCHAR(2) NOT NULL,
-	hire_date DATE NOT NULL,
+	hire_date DATE NOT NULL
 );
 
 SELECT * FROM employees
@@ -59,3 +60,14 @@ CREATE TABLE salaries(
 );
 
 SELECT * FROM salaries
+
+--Creating titles table
+
+DROP TABLE titles
+
+CREATE TABLE titles(
+	title_id VARCHAR NOT NULL,
+	title VARCHAR(50) NOT NULL
+);
+
+SELECT * FROM titles
