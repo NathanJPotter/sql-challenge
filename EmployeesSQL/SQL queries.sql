@@ -8,7 +8,7 @@ salaries.salary
 FROM employees
 LEFT JOIN salaries
 ON employees.emp_no = salaries.emp_no
-ORDER BY emp_no
+ORDER BY emp_no;
 
 --2. List employees who were hired in 1986.
 
@@ -32,7 +32,7 @@ LEFT JOIN departments
 ON dept_managers.dept_no = departments.dept_no
 LEFT JOIN employees 
 ON dept_managers.emp_no = employees.emp_no
-ORDER BY emp_no
+ORDER BY emp_no;
 
 --4. List the department of each employee with the following information: 
 --employee number, last name, first name, and department name.
@@ -47,3 +47,11 @@ FROM employees
 INNER JOIN dept_emp ON employees.emp_no=dept_emp.emp_no
 INNER JOIN departments ON departments.dept_no=dept_emp.dept_no
 order by emp_no;
+
+-- 5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
+
+SELECT employees.first_name,
+employees.last_name,
+employees.sex 
+FROM employees
+WHERE first_name = 'Hercules' AND last_name like 'B%';
