@@ -23,7 +23,7 @@ FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 
 SELECT * FROM dept_emp
 
--- Create table dept_managers
+-- Create dept_managers table
 
 DROP TABLE dept_managers
 
@@ -33,3 +33,29 @@ CREATE TABLE dept_managers(
 );
 
 SELECT * FROM dept_managers
+
+-- Create employees table
+
+DROP TABLE employees
+
+CREATE TABLE employees (
+	emp_no INT NOT NULL,
+	birth_date DATE NOT NULL,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	sex VARCHAR(2) NOT NULL,
+	hire_date DATE NOT NULL,
+);
+
+SELECT * FROM employees
+
+--Creating salaries table
+
+DROP TABLE salaries
+
+CREATE TABLE salaries(
+	emp_no INT NOT NULL,
+	salary INT NOT NULL
+);
+
+SELECT * FROM salaries
