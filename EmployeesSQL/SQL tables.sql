@@ -18,9 +18,7 @@ DROP TABLE dept_emp
 CREATE TABLE dept_emp(
 emp_no INT NOT NULL,
 dept_no VARCHAR(50) NOT NULL,
-PRIMARY KEY (emp_no),
-FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
-FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
+PRIMARY KEY (emp_no)
 );
 
 SELECT * FROM dept_emp
@@ -31,9 +29,7 @@ DROP TABLE dept_managers
 
 CREATE TABLE dept_managers(
 dept_no VARCHAR (10),
-emp_no INT,
-FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
-FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
+emp_no INT
 );
 
 SELECT * FROM dept_managers
@@ -49,9 +45,7 @@ birth_date DATE,
 first_name VARCHAR(50),
 last_name VARCHAR(50),
 sex VARCHAR(2),
-hire_date DATE,
-FOREIGN KEY (emp_title_id) REFERENCES titles(title_id),
-FOREIGN KEY (emp_no) REFERENCES dept_manager(emp_no)
+hire_date DATE
 );
 
 SELECT * FROM employees
@@ -62,8 +56,7 @@ DROP TABLE salaries
 
 CREATE TABLE salaries(
 	emp_no INT NOT NULL,
-	salary INT NOT NULL,
-    FOREIGN KEY(emp_no) REFERENCES employees(emp_no)
+	salary INT NOT NULL
 );
 
 SELECT * FROM salaries
@@ -78,26 +71,3 @@ CREATE TABLE titles(
 );
 
 SELECT * FROM titles
-
--- Adding foreign keys
-
-ALTER TABLE dept_emp ADD CONSTRAINT fk_dept_emp_emp_no FOREIGN KEY(emp_no)
-REFERENCES employees (emp_no);
-
-ALTER TABLE dept_emp ADD CONSTRAINT fk_dept_emp_dept_no FOREIGN KEY(dept_no)
-REFERENCES dept_manager (dept_no);
-
-ALTER TABLE dept_manager ADD CONSTRAINT fk_dept_manager_dept_no FOREIGN KEY(dept_no)
-REFERENCES departments (dept_no);
-
-ALTER TABLE dept_manager ADD CONSTRAINT fk_dept_manager_emp_no FOREIGN KEY(emp_no)
-REFERENCES salaries (emp_no);
-
-ALTER TABLE employees ADD CONSTRAINT fk_employees_emp_no FOREIGN KEY(emp_no)
-REFERENCES dept_manager (emp_no);
-
-ALTER TABLE employees ADD CONSTRAINT fk_employees_emp_title_id FOREIGN KEY(emp_title_id)
-REFERENCES titles (title_id);
-
-ALTER TABLE salaries ADD CONSTRAINT fk_salaries_emp_no FOREIGN KEY(emp_no)
-REFERENCES employees (emp_no);
