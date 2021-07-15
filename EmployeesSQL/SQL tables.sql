@@ -13,7 +13,7 @@ SELECT * FROM departments
 
 DROP TABLE dept_emp
 
-CREATE TABLE dept_emp (
+CREATE TABLE dept_emp(
 emp_no INT NOT NULL,
 dept_no VARCHAR(50) NOT NULL,
 PRIMARY KEY (emp_no)
@@ -27,9 +27,9 @@ SELECT * FROM dept_emp
 
 DROP TABLE dept_managers
 
-CREATE TABLE dept_managers (
+CREATE TABLE dept_managers(
  dept_no VARCHAR (10),
- emp_no INT,
+ emp_no INT
 );
 
 SELECT * FROM dept_managers
